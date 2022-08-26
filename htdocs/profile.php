@@ -18,7 +18,17 @@ if(empty($_SESSION['email']))
     <title>Home</title>
 </head>
 <body>
-<div id="wrapper_client_page">
+<div id="wrapper">
+    <div id="logowrap">
+        <img src="Img/logo.png" id="logo">
+    </div>
+    <div id="menu">
+        <div id="Home"><a href="index.html">Home</a></div>
+        <div id="Producten"><a href="producten.html">Producten</a></div>
+        <div id="Contact"><a href="contact.html">Contact</a></div>
+        <div id="Login"><a href="login.php">Login</a></div>
+        <div><a href="winkelmandje.html"></a>Winkelmandje</div>
+    </div>
     <p>Welkom <?php echo $_SESSION['voornaam'];?></p>
 
     <h1 id="Dashboard">Dashboard</h1><br>

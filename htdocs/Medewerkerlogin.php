@@ -14,7 +14,7 @@ $error_message = '<label>Vul je inlog gegevens in.</label>';
 }
 else
 {
-$query = "SELECT * FROM medewerker WHERE username = :username AND wachtwoord = :wachtwoord";
+$query = "SELECT * FROM medewerkers WHERE username = :username AND wachtwoord = :wachtwoord";
 $statement = $connect->prepare($query);
 $statement->execute(
 array(

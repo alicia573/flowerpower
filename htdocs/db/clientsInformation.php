@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <link rel = "icon" type = "image/png" href = "Images/logo.png">
+    <link rel = "icon" type = "image/png" href = "../Img/logo.png">
     <link rel="stylesheet" href="../style.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
@@ -12,12 +12,14 @@
 <body>
 <div id="wrapper">
     <?php
-    $search = $_POST['search'];
     session_start();
     if(isset($_SESSION["username"]))
-    {
+    {    $search = $_POST['search'];
+
         echo '<a href="../medewerkerArea.php" style="text-decoration: none; color: black"><h2 >Medewerker Area</h2 ></a>';
         echo '<h4>Welcome  '.$_SESSION["username"].'</h4>';
+        echo '<a href="../logout.php"><button type="button">Logout</button></a>';
+
     }
     else
     {
@@ -63,7 +65,7 @@
                 <td><?php echo $row['ID']; ?></td>
                 <td><?php echo $row['voornaam']; ?></td>
                 <td><?php echo $row['achternaam']; ?></td>
-                <td><?php echo $row['stad']; ?></td>
+                <td><?php echo $row['plaats']; ?></td>
                 <td><?php echo $row['adres']; ?></td>
                 <td><?php echo $row['postcode']; ?></td>
                 <td><?php echo $row['telefoonnummer']; ?></td>

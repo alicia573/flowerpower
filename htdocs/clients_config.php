@@ -13,7 +13,7 @@ if(isset($_POST['submit'])) {
 
     $voornaam = $_POST['voornaam'];
     $achternaam = $_POST['achternaam'];
-    $stad = $_POST['stad'];
+    $plaats = $_POST['plaats'];
     $adres = $_POST['adres'];
     $postcode = $_POST['postcode'];
     $telefoonnummer = $_POST['telefoonnummer'];
@@ -22,11 +22,11 @@ if(isset($_POST['submit'])) {
     $wachtwoord = password_hash($wachtwoord, PASSWORD_BCRYPT, array("cost" => 12));
 
     $insert = $connect->prepare("INSERT INTO flowerpower.klant
-        (voornaam,achternaam,stad,adres,postcode,telefoonnummer,email,wachtwoord)
-        values(:voornaam,:achternaam,:stad,:adres,:postcode,:telefoonnummer,:email,:wachtwoord)");
+        (voornaam,achternaam,plaats,adres,postcode,telefoonnummer,email,wachtwoord)
+        values(:voornaam,:achternaam,:plaats,:adres,:postcode,:telefoonnummer,:email,:wachtwoord)");
     $insert->bindParam(':voornaam', $voornaam);
     $insert->bindParam(':achternaam', $achternaam);
-    $insert->bindParam(':stad', $stad);
+    $insert->bindParam(':plaats', $plaats);
     $insert->bindParam(':adres', $adres);
     $insert->bindParam(':postcode', $postcode);
     $insert->bindParam(':telefoonnummer', $telefoonnummer);
@@ -46,7 +46,7 @@ if(isset($_POST['submit'])) {
                     text: "Er is al een account aangemaakt met deze email",
                     type: "failed"
                 }).then(function() {
-                    window.location = "Register.php";
+                    window.location = "register.php";
                 });
               }); 
             </script>';

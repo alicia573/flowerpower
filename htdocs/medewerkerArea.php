@@ -15,9 +15,9 @@
     session_start();
     if(isset($_SESSION["username"]))
     {
-        echo '<a href="../medewerkerArea.php" style="text-decoration: none; color: black"><h2 >Medewerker Area</h2 ></a>';
+        echo '<a href="medewerkerArea.php" style="text-decoration: none; color: black"><h2 >Medewerker Area</h2 ></a>';
         echo '<h4>Welcome '.$_SESSION["username"].'</h4>';
-        echo '<a href="Logout.php"><button type="button">Logout</button></a>';
+        echo '<a href="logout.php"><button type="button">Logout</button></a>';
     }
     else
     {
@@ -26,8 +26,7 @@
 
     }
     ?>
-    <button id="buttonPost"><a href="test/postToClientArea.php">Post informatie voor klanten.</a></button>
-    <button id="buttonClientsInformation"><a href="test/clientsInformation.php">Klanten gegevens</a></button>
+    <button id="buttonClientsInformation"><a href="db/clientsInformation.php">Klanten gegevens</a></button>
 
 </div>
 </body>

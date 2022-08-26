@@ -58,7 +58,7 @@ if (isset($_POST["login"])) {
                             text: "Wachtwoord is niet juist",
                             type: "failed"
                         }).then(function() {
-                            window.location = "KlantenInloggen.php";
+                            window.location = "login.php";
                         });
                       }); 
                     </script>';
