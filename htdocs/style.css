@@ -1,0 +1,55 @@
+@font-face {
+    font-family: indieflower;
+    src: url(fonts/IndieFlower-Regular.ttf);
+}
+@font-face {
+    font-family: hydrangeaflower;
+    src: url(fonts/Hydrangea-Flower.otf);
+}
+*{
+
+}
+body{
+    box-sizing: border-box;
+    margin: auto;
+}
+#wrapper{
+    margin: auto;
+    padding: 5%;
+    font-size: 1.5vw;
+}
+#logo{
+    height: 100px;
+}
+#banner img{
+    width: 100%;
+}
+#menu{
+    font-family: indieflower, serif ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    text-decoration: none;
+}
+
+#menu a {
+    text-decoration: none;
+    color: white;
+    background: #ed5276;
+    padding: 10px;
+}
+#home-title h2{
+font-family: hydrangeaflower,serif ;
+}
+#home-text{
+font-family: indieflower,serif;
+}
+#pg-gegevens{
+    padding-top: 100px;
+}
+/*------------------------------------login style-----------------------------------------*/
+#line{
+    border:1px solid black;
+    width: 100%;
+}
