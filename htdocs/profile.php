@@ -27,18 +27,20 @@ if(empty($_SESSION['email']))
         <div id="Producten"><a href="producten.html">Producten</a></div>
         <div id="Contact"><a href="contact.html">Contact</a></div>
         <div id="Login"><a href="login.php">Login</a></div>
-        <div><a href="winkelmandje.html"></a>Winkelmandje</div>
+        <div><a href="winkelmandje.html">Winkelmandje</a></div>
     </div>
-    <p>Welkom <?php echo $_SESSION['voornaam'];?></p>
+    <div id="pg-gegevens">
+        <p>Welkom <?php echo $_SESSION['voornaam'];?></p>
 
-    <h1 id="Dashboard">Dashboard</h1><br>
-    <?php
-    include ('db/config.php');
-    $results = $connect->prepare("SELECT * FROM factuur ORDER BY idfactuur");
-    $results->execute();
+        <h1 id="Dashboard">Dashboard</h1><br>
+        <?php
+        include ('db/config.php');
+        $results = $connect->prepare("SELECT * FROM factuur ORDER BY idfactuur");
+        $results->execute();
 
-    ?>
-</div>
+        ?>
+
+    </div>
 <footer style="bottom: auto">
     <p>&copy; Copyright 2021</p>
 </footer>

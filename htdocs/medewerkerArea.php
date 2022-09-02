@@ -27,6 +27,7 @@
     }
     ?>
     <button id="buttonClientsInformation"><a href="db/clientsInformation.php">Klanten gegevens</a></button>
+    <button id="buttonClientsInformation"><a href="db/createproduct.php">Voeg een product toe</a></button>
 
 </div>
 </body>

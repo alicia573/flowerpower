@@ -18,6 +18,7 @@
         <div id="Login"><a href="login.php">Login</a></div>
         <div id="winkelmandje"><a href="winkelmandje.html">Winkelmandje</a></div>
     </div>
+    <div id="pg-gegevens">
     <h2>Maak een account aan</h2>
     <h4>Vul deze formulier in om een account aan te maken.</h4>
     <form action="clients_config.php" method="post" id="register_form" autocomplete="off">
@@ -65,8 +66,8 @@
             <button type="submit" name="submit" id="login-btn-client">Verstuur</button>
         </div>
     </form>
-    <p>Heb je al een account dan kun je hier<a href="KlantenInloggen.php" style="text-decoration: none; color: blue;"> Inloggen.</a></p>
-    <img src="">
+    <p>Heb je al een account dan kun je hier<a href="login.php" style="text-decoration: none; color: blue;"> Inloggen.</a></p>
+
 </div>
 </body>
 
