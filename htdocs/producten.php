@@ -24,19 +24,24 @@
             <div>
                 <?php
 
-                include ('db/config.php');
-                $results = $connect->prepare("SELECT * FROM artikel ORDER BY idartikel DESC LIMIT 4");
-                $recently_added_products= $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                include('db/config.php');
+                $results = $connect->prepare("SELECT * FROM artikel");
+                //$results->bindValue(':search'.'%'.$search.'%');
+                $results->execute();
 
+                $recently_added_products = $results->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($connect as $artikel): ?>
-                    <a href="producten.php?page=product&id=<?=$artikel['idartikel']?>" class="product">
-                        <img src="Img/<?=$artikel['bestand']?>" width="200" height="200" alt="<?=$artikel['naamproduct']?>">
-                        <span class="name"><?=$artikel['naamproduct']?></span>
-                        <span class="price">
-                &euro;<?=$artikel['prijs']?>
+                foreach ($recently_added_products as $product): ?>
+                <a href="index.html?page=product&id=<?=$product['idartikel']?>" class="product">
+                    <img src="Img/<?=$product['bestand']?>" width="200" height="200" alt="<?=$product['naamproduct']?>">
+                    <span class="name"><?=$product['naamproduct']?></span>
+                    <span class="price">
+                &dollar;<?=$product['prijs']?>
+                        <?php if ($product['prijs'] > 0): ?>
+                            <span class="rrp">&euro;<?=$product['prijs']?></span>
+                        <?php endif; ?>
             </span>
-                    </a>
+                </a>
                 <?php endforeach; ?>
             </div>
         </div>

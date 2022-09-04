@@ -24,10 +24,10 @@ if(empty($_SESSION['email']))
     </div>
     <div id="menu">
         <div id="Home"><a href="index.html">Home</a></div>
-        <div id="Producten"><a href="producten.html">Producten</a></div>
+        <div id="Producten"><a href="producten.php">Producten</a></div>
         <div id="Contact"><a href="contact.html">Contact</a></div>
         <div id="Login"><a href="login.php">Login</a></div>
-        <div><a href="winkelmandje.html">Winkelmandje</a></div>
+        <div><a href="winkelmandje.php">Winkelmandje</a></div>
     </div>
     <div id="pg-gegevens">
         <p>Welkom <?php echo $_SESSION['voornaam'];?></p>
@@ -37,6 +37,7 @@ if(empty($_SESSION['email']))
         include ('db/config.php');
         $results = $connect->prepare("SELECT * FROM factuur ORDER BY idfactuur");
         $results->execute();
+
 
         ?>
 

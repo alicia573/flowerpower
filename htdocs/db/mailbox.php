@@ -53,6 +53,7 @@
             </tr>
 
             <?php
+
             $results = $connect->prepare("SELECT * FROM mailbox WHERE voornaam LIKE '$search%' ");
             //$results->bindValue(':search'.'%'.$search.'%');
             $send = $results->execute();
