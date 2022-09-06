@@ -9,18 +9,45 @@
 </head>
 <body>
 <div id="wrapper">
-    <div id="logowrap">
-        <img src="Img/logo.png" id="logo">
-    </div>
     <div id="menu">
-        <div id="Home"><a href="index.html">Home</a></div>
-        <div id="Producten"><a href="producten.php">Producten</a></div>
-        <div id="Contact"><a href="contact.html">Contact</a></div>
-        <div id="Login"><a href="login.php">Login</a></div>
-        <div><a href="winkelmandje.php">Winkelmandje</a></div>
+        <div id="logowrap">
+            <img src="Img/logo.png" id="logo" alt="">
+        </div>
+        <div id="menu-btn">
+            <div id="Home"><a href="index.php">Home</a></div>
+            <div id="Producten"><a href="producten.php">Producten</a></div>
+            <div id="Contact"><a href="contact.html">Contact</a></div>
+            <div id="Login"><a href="login.php">Login</a></div>
+            <div id="Winkelmandje"><a href="winkelmandje.php">Winkelmandje</a></div>
+        </div>
+
     </div>
     <div id="pg-gegevens">
+        <section id="form">
+            <h2>Contact Form</h2>
+            <form method="POST" id="contact-form" action="contactaction.php" name="myemailform">
+                <label>naam<br>
+                    <input name="voornaam" type="text" id="name-form" placeholder="voornaam" required>
+                </label><br>
+                <label>Tussenvoegsel<br>
+                    <input name="tussenvoegsel" type="email" id="email-form" placeholder="tussenvoegsel">
+                </label><br>
+                <label>Achternaam<br>
+                    <input name="achternaam" type="tel" id="tel-form" placeholder="achternaam" required>
+                </label><br>
+                <label>Email<br>
+                    <input name="email" type="tel" id="tel-form" placeholder="email" required>
+                </label><br>
+                <label>Onderwerp<br>
+                    <input name="onderwerp" placeholder="onderwerp" id="onderwerp" required>
+                </label><br>
+                <label>Bericht<br>
+                    <br><textarea name="bericht" id="bericht-form" placeholder="Bericht..." required></textarea>
+                </label><br>
+                <button type="submit" value="submit" name="submit" id="button">Submit</button>
+            </form>
 
+        </section>
     </div>
 </div>
 </body>

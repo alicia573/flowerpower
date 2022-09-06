@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +10,18 @@
 </head>
 <body>
 <div id="wrapper">
-    <div id="logowrap">
-        <img src="Img/logo.png" id="logo">
-    </div>
     <div id="menu">
-        <div id="Home"><a href="index.html">Home</a></div>
-        <div id="Producten"><a href="producten.php">Producten</a></div>
-        <div id="Contact"><a href="contact.html">Contact</a></div>
-        <div id="Login"><a href="login.php">Login</a></div>
-        <div id="winkelmandje"><a href="winkelmandje.php">Winkelmandje</a></div>
+        <div id="logowrap">
+            <img src="Img/logo.png" id="logo" alt="">
+        </div>
+        <div id="menu-btn">
+            <div id="Home"><a href="index.php">Home</a></div>
+            <div id="Producten"><a href="producten.php">Producten</a></div>
+            <div id="Contact"><a href="contact.html">Contact</a></div>
+            <div id="Login"><a href="login.php">Login</a></div>
+            <div id="Winkelmandje"><a href="winkelmandje.php">Winkelmandje</a></div>
+        </div>
+
     </div>
     <div id="banner">
         <img src="Img/bloemen.jpg">

@@ -43,7 +43,6 @@ $send = $results->execute();
 <body>
 <div id="wrapper">
     <?php
-    //Login Success.php
     session_start();
     if(isset($_SESSION["username"]))
     {

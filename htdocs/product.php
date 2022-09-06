@@ -1,13 +1,13 @@
 <?php
+include('db/config.php');
 
-if (isset($_GET['naamproduct'])) {
+// Check to make sure the id parameter is specified in the URL
+if (isset($_GET['idartikel'])) {
     // Prepare statement and execute, prevents SQL injection
-    $results = $connect->prepare("SELECT * FROM artikel");
-    //$results->bindValue(':search'.'%'.$search.'%');
-    $product = $connect->prepare(PDO::FETCH_ASSOC);
-    $results = $results->execute();
-
+    $results = $connect->prepare('SELECT * FROM artikel WHERE idartikel = ?');
+    $results->execute([$_GET['idartikel']]);
     // Fetch the product from the database and return the result as an Array
+    $product = $results->fetch(PDO::FETCH_ASSOC);
     // Check if the product exists (array is not empty)
     if (!$product) {
         // Simple error to display if the id for the product doesn't exists (array is empty)
@@ -28,9 +28,10 @@ if (isset($_GET['naamproduct'])) {
                 <span class="rrp">&dollar;<?=$product['prijs']?></span>
             <?php endif; ?>
         </span>
-        <form action="index.html?page=winkelmandje" method="post">
+        <form action="index.php?page=winkelmandje" method="post">
+            <input type="number" name="quantity" value="1" min="1" max="<?=$product['aantal']?>" placeholder="Quantity" required>
             <input type="hidden" name="product_id" value="<?=$product['idartikel']?>">
-            <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
+            <input type="submit" value="Add To Cart">
         </form>
         <div class="description">
             <?=$product['omschrijving']?>
