@@ -3,7 +3,7 @@
 include ('db/config.php');
 if(isset($_POST['submit'])) {
     $message="yes";
-    $voornaam = $_POST['naam'];
+    $voornaam = $_POST['voornaam'];
     $tussenvoegsel = $_POST['tussenvoegsel'];
     $achternaam = $_POST['achternaam'];
     $onderwerp = ['onderwerp'];
@@ -12,10 +12,10 @@ if(isset($_POST['submit'])) {
 
 
     $stmt = $connect->prepare("INSERT INTO mailbox (idbericht,voornaam,tussenvoegsel,achternaam,onderwerp,bericht,email,datum) 
-        VALUES(:idartikel,:voornaam, :tussenvoegsel,:achternaam,:onderwerp, :bericht,:email,now())");
+        VALUES(:idbericht,:voornaam, :tussenvoegsel,:achternaam,:onderwerp, :bericht,:email,now())");
     $stmt->bindParam(":idbericht", $idbericht);
     $stmt->bindParam(":voornaam", $voornaam);
-    $stmt->bindParam(":tussenvoegsel", $omschrijving);
+    $stmt->bindParam(":tussenvoegsel", $tussenvoegsel);
     $stmt->bindParam(":achternaam", $achternaam);
     $stmt->bindParam(":onderwerp", $onderwerp);
     $stmt->bindParam(":bericht", $bericht);
@@ -28,4 +28,3 @@ if(isset($_POST['submit'])){
 }
 
 
-?>

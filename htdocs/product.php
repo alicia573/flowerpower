@@ -1,40 +1,61 @@
 <?php
 include('db/config.php');
 
-// Check to make sure the id parameter is specified in the URL
 if (isset($_GET['idartikel'])) {
-    // Prepare statement and execute, prevents SQL injection
     $results = $connect->prepare('SELECT * FROM artikel WHERE idartikel = ?');
     $results->execute([$_GET['idartikel']]);
-    // Fetch the product from the database and return the result as an Array
     $product = $results->fetch(PDO::FETCH_ASSOC);
-    // Check if the product exists (array is not empty)
     if (!$product) {
-        // Simple error to display if the id for the product doesn't exists (array is empty)
         exit('Product does not exist!');
     }
 } else {
-    // Simple error to display if the id wasn't specified
     exit('Product does not exist!');
 }
 ?>
-<div class="product content-wrapper">
-    <img src="Img/<?=$product['bestand']?>" width="500" height="500" alt="<?=$product['naamproduct']?>">
-    <div>
-        <h1 class="name"><?=$product['naamproduct']?></h1>
-        <span class="price">
-            &dollar;<?=$product['prijs']?>
-            <?php if ($product['prijs'] > 0): ?>
-                <span class="rrp">&dollar;<?=$product['prijs']?></span>
-            <?php endif; ?>
-        </span>
-        <form action="index.php?page=winkelmandje" method="post">
-            <input type="number" name="quantity" value="1" min="1" max="<?=$product['aantal']?>" placeholder="Quantity" required>
-            <input type="hidden" name="product_id" value="<?=$product['idartikel']?>">
-            <input type="submit" value="Add To Cart">
-        </form>
-        <div class="description">
-            <?=$product['omschrijving']?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" type = "image/png" href = "Img/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="menu">
+        <div id="logowrap">
+            <img src="Img/logo.png" id="logo" alt="">
         </div>
+        <div id="menu-btn">
+            <div id="Home"><a href="index.php">Home</a></div>
+            <div id="Producten"><a href="producten.php">Producten</a></div>
+            <div id="Contact"><a href="contact.html">Contact</a></div>
+            <div id="Login"><a href="login.php">Login</a></div>
+            <div id="Winkelmandje"><a href="cart.php">Winkelmandje</a></div>
+        </div>
+
+    </div>
+    <div id="pg-gegevens">
+        <div class="product content-wrapper">
+            <img src="Img/<?=$product['bestand']?>" width="500" height="500" alt="<?=$product['naamproduct']?>">
+            <div>
+                <h1 class="name"><?=$product['naamproduct']?></h1>
+                <span class="price">
+            &dollar;<?=$product['prijs']?>
+        </span>
+                <form action="cart.php" method="post">
+                    <input type="number" name="aantal" value="1" min="1" max="<?=$product['aantal']?>" placeholder="Quantity" required>
+                    <input type="hidden" name="idartikel" value="<?=$product['idartikel']?>">
+                    <input type="submit" value="In winkelwagen">
+                </form>
+                <div class="description"><p style="font-stretch: expanded">Omschrijving</p>
+                    <?=$product['omschrijving']?>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+</body>
+</html>

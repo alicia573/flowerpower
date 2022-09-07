@@ -19,7 +19,7 @@
             <div id="Producten"><a href="producten.php">Producten</a></div>
             <div id="Contact"><a href="contact.html">Contact</a></div>
             <div id="Login"><a href="login.php">Login</a></div>
-            <div id="Winkelmandje"><a href="winkelmandje.php">Winkelmandje</a></div>
+            <div id="Winkelmandje"><a href="cart.php">Winkelmandje</a></div>
         </div>
 
     </div>
@@ -36,7 +36,7 @@
                 $recently_added_products = $results->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($recently_added_products as $product): ?>
-                <a href="index.php?page=product&id=<?=$product['idartikel']?>" class="product">
+                <a href="product.php?product&idartikel=<?=$product['idartikel']?>" class="product">
                     <img src="Img/<?=$product['bestand']?>" width="200" height="200" alt="<?=$product['naamproduct']?>">
                     <div id="product-text-home">
                         <span class="name"><?=$product['naamproduct']?></span>

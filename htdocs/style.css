@@ -55,6 +55,8 @@ font-family: indieflower,serif;
 }
 #pg-gegevens{
     padding-top: 100px;
+    font-family: indieflower,serif;
+
 }
 /*------------------------------------login style-----------------------------------------*/
 #line{
@@ -79,8 +81,7 @@ font-family: indieflower,serif;
     border: 1px solid rgb(0 0 0 / 0%);
 }
 #search_column{
-    margin-top: 100px;
-    padding-bottom: 100px;
+    margin-top: 60px;
 }
 #buttonSearch{
     padding: 12px 20px;
@@ -118,7 +119,6 @@ font-family: indieflower,serif;
     padding: 12px 20px -20px 100px;
     margin: 8px 0;
     display: inline-block;
-    border: 5px solid #ccc;
     border-radius: 4px;
 }
 #Dashboard{
@@ -182,7 +182,7 @@ input, textarea{
     border-radius: 3px;
     background: white;
     color: black;
-    width: 80%;
+    width: 100%;
 }
 
 #button{
@@ -191,7 +191,7 @@ input, textarea{
     background-color: #177521;
     border:0
 }
-#name-form,#email-form,#subject, #tel-form{
+#name-form,#email-form,#subject, #tel-form, #onderwerp, #bericht-form{
     width: 80%;
     border: 2px solid #177521;
     border-radius: 3px;
@@ -205,12 +205,15 @@ input, textarea{
     height: 80px;
     resize: vertical;
     background-size: cover;
-    color: white;
 }
 #sent{
+    display: flex;
     margin: auto;
     padding: 10px;
-    color: white;
+}
+#sent-img{
+    height: 50%;
+    width: 50%;
 }
 #mail-gif{
 }

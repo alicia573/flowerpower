@@ -7,18 +7,18 @@
     </script>
     <title>Klanten info</title>
 </head>
-
-
 <body>
 <div id="wrapper">
     <?php
+    include ('config.php');
     session_start();
     if(isset($_SESSION["username"]))
-    {    $search = $_POST['search'];
-
+    {
         echo '<a href="../medewerkerArea.php" style="text-decoration: none; color: black"><h2 >Medewerker Area</h2 ></a>';
         echo '<h4>Welcome  '.$_SESSION["username"].'</h4>';
         echo '<a href="../logout.php"><button type="button">Logout</button></a>';
+        echo '<a href="../medewerkerArea.php"><button type="button">Terug</button></a>';
+
 
     }
     else
@@ -26,7 +26,9 @@
         header("location:../logout.php");
         echo'error';
     }
-
+    $search = isset($_POST['search']) ? $_POST['search'] : FALSE;
+    $results = $connect->prepare("SELECT * FROM klant WHERE klant.voornaam LIKE '$search%' ");
+    $send = $results->execute();
     ?>
 
     <form id="search_column" action="" method="POST">
@@ -37,9 +39,7 @@
     </form>
 
     <div id="table_clients">
-        <?php
-        include ('config.php');
-        ?>
+
         <table id="table">
             <tr id="table_">
                 <th>ID</th>
@@ -50,6 +50,7 @@
                 <th>Postcode</th>
                 <th>Telefoonnummer</th>
                 <th>Email</th>
+                <th>Wachtwoord</th>
             </tr>
 
             <?php
@@ -69,7 +70,9 @@
                 <td><?php echo $row['adres']; ?></td>
                 <td><?php echo $row['postcode']; ?></td>
                 <td><?php echo $row['telefoonnummer']; ?></td>
-                <td><?php echo $row['email']; }?></td>
+                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $row['wachtwoord']; }?></td>
+
             </tr>
             </tbody>
         </table>

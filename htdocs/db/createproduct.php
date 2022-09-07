@@ -6,29 +6,31 @@ if(isset($_POST['submit'])) {
     $naamproduct = $_POST['naamproduct'];
     $prijs = $_POST['prijs'];
     $omschrijving = $_POST['omschrijving'];
+    $aantal = $_POST['aantal'];
     $bestand = $_FILES['bestand']['name'];
 
     $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
 
     move_uploaded_file($_FILES["bestand"]["tmp_name"], "../../htdocs/Img/" . $_FILES["bestand"]["name"]);
-    $stmt = $connect->prepare("INSERT INTO artikel (idartikel,naamproduct,omschrijving,prijs,bestand,upload_date) 
-        VALUES(:idartikel,:naamproduct, :omschrijving,:prijs,:bestand,now())");
+    $stmt = $connect->prepare("INSERT INTO artikel (idartikel,naamproduct,omschrijving,aantal,prijs,bestand,upload_date) 
+        VALUES(:idartikel,:naamproduct, :omschrijving,:aantal,:prijs,:bestand,now())");
     $stmt->bindParam(":idartikel", $idartikel);
     $stmt->bindParam(":naamproduct", $naamproduct);
     $stmt->bindParam(":omschrijving", $omschrijving);
+    $stmt->bindParam(":aantal", $aantal);
     $stmt->bindParam(":prijs", $prijs);
     $stmt->bindParam(":bestand", $bestand);
     $stmt->execute();
 }
 if(isset($_POST['submit'])){
-    $id = $_GET["posted"];
-    echo $id;
+    echo header("Refresh:0");
 
 
 }
 $search = isset($_POST['search']) ? $_POST['search'] : FALSE;
 $results = $connect->prepare("SELECT * FROM artikel WHERE artikel.naamproduct LIKE '$search%' ");
 $send = $results->execute();
+
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +50,8 @@ $send = $results->execute();
     {
         echo '<a href="../medewerkerArea.php" style="text-decoration: none; color: black"><h2 >Medewerker Area</h2 ></a>';
         echo '<h4>Welcome '.$_SESSION["username"].'</h4>';
+        echo '<a href="../medewerkerArea.php"><button type="button">terug</button></a>';
+
     }
     else
     {
@@ -63,6 +67,9 @@ $send = $results->execute();
         </label>
         <label>Omschrijving:
             <textarea name="omschrijving" class="text-area" required></textarea>
+        </label>
+        <label>Aantal:
+            <textarea name="aantal" class="text-area" required></textarea>
         </label>
         <label>Prijs:
             <textarea name="prijs" class="text-area" required></textarea>
@@ -93,7 +100,9 @@ $send = $results->execute();
             </tr>
 
             <?php
-            while($row = $results->fetch(PDO::FETCH_ASSOC)){
+
+
+         while($row = $results->fetch(PDO::FETCH_ASSOC)){
             extract($row);
             ?>
             <tbody id="table_info">

@@ -18,7 +18,7 @@
             <div id="Producten"><a href="producten.php">Producten</a></div>
             <div id="Contact"><a href="contact.html">Contact</a></div>
             <div id="Login"><a href="login.php">Login</a></div>
-            <div id="Winkelmandje"><a href="winkelmandje.php">Winkelmandje</a></div>
+            <div id="Winkelmandje"><a href="cart.php">Winkelmandje</a></div>
         </div>
 
     </div>
@@ -26,7 +26,7 @@
         <section id="form">
             <h2>Contact Form</h2>
             <form method="POST" id="contact-form" action="contactaction.php" name="myemailform">
-                <label>naam<br>
+                <label>Voornaam<br>
                     <input name="voornaam" type="text" id="name-form" placeholder="voornaam" required>
                 </label><br>
                 <label>Tussenvoegsel<br>
@@ -35,14 +35,14 @@
                 <label>Achternaam<br>
                     <input name="achternaam" type="tel" id="tel-form" placeholder="achternaam" required>
                 </label><br>
-                <label>Email<br>
-                    <input name="email" type="tel" id="tel-form" placeholder="email" required>
-                </label><br>
                 <label>Onderwerp<br>
                     <input name="onderwerp" placeholder="onderwerp" id="onderwerp" required>
                 </label><br>
                 <label>Bericht<br>
                     <br><textarea name="bericht" id="bericht-form" placeholder="Bericht..." required></textarea>
+                </label><br>
+                <label>Email<br>
+                    <input name="email" type="tel" id="tel-form" placeholder="email" required>
                 </label><br>
                 <button type="submit" value="submit" name="submit" id="button">Submit</button>
             </form>

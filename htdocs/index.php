@@ -19,7 +19,7 @@
             <div id="Producten"><a href="producten.php">Producten</a></div>
             <div id="Contact"><a href="contact.html">Contact</a></div>
             <div id="Login"><a href="login.php">Login</a></div>
-            <div id="Winkelmandje"><a href="winkelmandje.php">Winkelmandje</a></div>
+            <div id="Winkelmandje"><a href="cart.php">Winkelmandje</a></div>
         </div>
 
     </div>
